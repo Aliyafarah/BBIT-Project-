@@ -5,7 +5,6 @@
 
 using namespace std;
 
-// Define a structure to hold student data
 struct Student {
     string firstname;  // Student's first name
     string surname;    // Student's surname
