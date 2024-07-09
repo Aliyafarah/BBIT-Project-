@@ -1,0 +1,3 @@
+C:/Users/farah_9ug6vm8/CLionProjects/BBIT/cmake-build-debug/CMakeFiles/BBIT.dir
+C:/Users/farah_9ug6vm8/CLionProjects/BBIT/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/farah_9ug6vm8/CLionProjects/BBIT/cmake-build-debug/CMakeFiles/rebuild_cache.dir
