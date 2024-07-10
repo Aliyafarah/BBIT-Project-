@@ -160,3 +160,49 @@ void saveToCSV(const vector<Student> &students) {
     outFile.close();
     cout << "\nData saved to students.csv\n";
 }
+int main() {
+    vector<Student> students; // Vector to hold student data
+    vector<Activity> activities;
+
+    // Initialize activities
+    activities.push_back((Activity){"Rugby", "Sport", 20, 0});
+    activities.push_back((Activity){"Athletics", "Sport", 20, 0});
+    activities.push_back((Activity){"Swimming", "Sport", 20, 0});
+    activities.push_back((Activity){"Soccer", "Sport", 20, 0});
+    activities.push_back((Activity){"Journalism Club", "Club", 60, 0});
+    activities.push_back((Activity){"Red Cross Society", "Club", 60, 0});
+    activities.push_back((Activity){"AISEC", "Club", 60, 0});
+    activities.push_back((Activity){"Business Club", "Club", 60, 0});
+    activities.push_back((Activity){"Computer Science Club", "Club", 60, 0});
+
+    while (true) {
+        displayMenu(); // Show the menu
+        int choice;
+        cin >> choice;
+
+        switch (choice) {
+        case 1:
+            addStudent(students, activities); // Add a new student
+            break;
+        case 2:
+            viewStudents(students); // View all students
+            break;
+        case 3:
+            viewActivities(activities, "Club"); // View clubs/societies
+            break;
+        case 4:
+            viewActivities(activities, "Sport"); // View sports
+            break;
+        case 5:
+            saveToCSV(students); // Save data to CSV
+            break;
+        case 6:
+            cout << "Exiting program.\n";
+            return 0;
+        default:
+            cout << "Invalid choice. Please try again.\n";
+            break;
+        }
+    }
+    return 0;
+}
