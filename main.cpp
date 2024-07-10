@@ -127,3 +127,36 @@ void viewStudents(const vector<Student> &students) {
         cout << endl;
     }
 }
+// Function to view activities of a specific type (Sport or Club)
+void viewActivities(const vector<Activity> &activities, const string &type) {
+    cout << "\n" << type << " Activities:\n";
+    for (size_t i = 0; i < activities.size(); ++i) {
+        const Activity &activity = activities[i];
+        if (activity.type == type) {
+            cout << activity.name << " (" << activity.type << "), Capacity: "
+                 << activity.currentCount << "/" << activity.capacity << endl;
+        }
+    }
+}
+
+// Function to save student data to a CSV file
+void saveToCSV(const vector<Student> &students) {
+    ofstream outFile("students.csv");
+
+    // Write the header line
+    outFile << "Firstname,Surname,Gender,Age,Group,Activities\n";
+
+    // Write student data
+    for (size_t i = 0; i < students.size(); ++i) {
+        const Student &student = students[i];
+        outFile << student.firstname << "," << student.surname << "," << student.gender
+                << "," << student.age << "," << student.group << ",";
+        for (size_t j = 0; j < student.activities.size(); ++j) {
+            outFile << student.activities[j] << " ";
+        }
+        outFile << "\n";
+    }
+
+    outFile.close();
+    cout << "\nData saved to students.csv\n";
+}
