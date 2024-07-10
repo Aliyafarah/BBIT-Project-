@@ -42,3 +42,47 @@ void displayMenu() {
     cout << "6. Exit\n";
     cout << "Enter your choice: ";
 }
+void displayActivities(const vector<Activity> &activities, const string &type) {
+    cout << "\nAvailable " << type << " Activities:\n";
+    for (size_t i = 0; i < activities.size(); ++i) {
+        const Activity &activity = activities[i];
+        if (activity.type == type) {
+            cout << activity.name << " (" << activity.type << "), Capacity: "
+                 << activity.currentCount << "/" << activity.capacity << endl;
+        }
+    }
+}
+
+// Function to add a student
+void addStudent(vector<Student> &students, vector<Activity> &activities) {
+    Student student;
+    cout << "\nEnter first name: ";
+    cin >> ws; // consume any leading whitespace
+    getline(cin, student.firstname);
+    cout << "Enter surname: ";
+    getline(cin, student.surname);
+    cout << "Enter gender (Male/Female): ";
+    getline(cin, student.gender);
+    cout << "Enter age: ";
+    cin >> student.age;
+    cout << "Enter BBIT group (1, 2, or 3): ";
+    cin >> student.group;
+
+    // Display available sports
+    displayActivities(activities, "Sport");
+
+    // Allocate sport to the student
+    cout << "\nEnter the name of the sport the student will partake in (or 'None' if not participating in any sport): ";
+    string sport;
+    cin >> ws; // consume any leading whitespace
+    getline(cin, sport);
+    if (sport != "None") {
+        student.activities.push_back(sport);
+        // Update the activity count
+        for (size_t i = 0; i < activities.size(); ++i) {
+            if (activities[i].name == sport) {
+                activities[i].currentCount++;
+                break;
+            }
+        }
+    }
