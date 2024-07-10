@@ -86,3 +86,44 @@ void addStudent(vector<Student> &students, vector<Activity> &activities) {
             }
         }
     }
+ // Display available clubs
+    displayActivities(activities, "Club");
+
+    // Allocate clubs to the student
+    cout << "\nEnter the number of clubs the student will join (maximum 3 if not participating in a sport, otherwise maximum 2): ";
+    int numClubs;
+    cin >> numClubs;
+
+    for (int i = 0; i < numClubs; ++i) {
+        string clubName;
+        cout << "Enter the name of club " << i + 1 << ": ";
+        cin >> ws; // consume any leading whitespace
+        getline(cin, clubName);
+        student.activities.push_back(clubName);
+
+        // Update the activity count
+        for (size_t j = 0; j < activities.size(); ++j) {
+            if (activities[j].name == clubName) {
+                activities[j].currentCount++;
+                break;
+            }
+        }
+    }
+
+    students.push_back(student); // Add the student to the list
+    cout << "\nStudent added successfully!\n";
+}
+
+// Function to view all students
+void viewStudents(const vector<Student> &students) {
+    cout << "\nStudents:\n";
+    for (size_t i = 0; i < students.size(); ++i) {
+        const Student &student = students[i];
+        cout << student.firstname << " " << student.surname << " (" << student.gender
+             << ", Age: " << student.age << ", Group: " << student.group << "): ";
+        for (size_t j = 0; j < student.activities.size(); ++j) {
+            cout << student.activities[j] << " ";
+        }
+        cout << endl;
+    }
+}
