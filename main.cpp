@@ -22,14 +22,6 @@ struct Activity {
     int currentCount;  // Current number of participants
 };
 
-// Function prototypes
-void displayMenu();
-void displayActivities(const vector<Activity> &activities, const string &type);
-void addStudent(vector<Student> &students, vector<Activity> &activities);
-void viewStudents(const vector<Student> &students);
-void viewActivities(const vector<Activity> &activities, const string &type);
-void saveToCSV(const vector<Student> &students);
-
 // Function to display the menu
 void displayMenu() {
     cout << "\nBBIT Year 1 Co-Curricular Activity Allocation System\n";
