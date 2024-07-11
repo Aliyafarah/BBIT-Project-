@@ -59,6 +59,10 @@ void addStudent(vector<Student> &students, vector<Activity> &activities) {
     cin >> student.age;
     cout << "Enter BBIT group (1, 2, or 3): ";
     cin >> student.group;
+    if (student.group < 1 || student.group > 3) {
+        cout << "Invalid group number. Returning to main menu.\n";
+        return;
+    }
 
     // Display available sports
     displayActivities(activities, "Sport");
