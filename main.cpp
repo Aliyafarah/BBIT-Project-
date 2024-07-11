@@ -53,8 +53,16 @@ void addStudent(vector<Student> &students, vector<Activity> &activities) {
     getline(cin, student.firstname);
     cout << "Enter surname: ";
     getline(cin, student.surname);
-    cout << "Enter gender (Male/Female): ";
-    getline(cin, student.gender);
+    while (true) {
+        cout << "Enter gender (Female/Male): ";
+        getline(cin, student.gender);
+
+        if (student.gender == "Female" || student.gender == "Male") {
+            break;
+        } else {
+            cout << "Invalid input. Please enter either 'Female' or 'Male'." << endl;
+        }
+    }
     cout << "Enter age: ";
     cin >> student.age;
     if (student.age < 15 || student.age > 50){
